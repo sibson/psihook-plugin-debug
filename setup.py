@@ -18,6 +18,11 @@ setup(
     url='https://github.com/sibson/psihook-plugin-debug',
     author='Marc Sibson',
     author_email='sibson+psihook@gmail.com',
+    test_suite='runtests',
+    tests_require=[
+        'Django',
+        'mock',
+    ],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',

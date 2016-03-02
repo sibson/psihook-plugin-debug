@@ -1,14 +1,30 @@
+from __future__ import absolute_import
+
+import json
+
 from django.http import HttpResponse
 
-import structlog
 
-LOGGER = structlog.get_logger()
-
-SCRUBS = 'AUTHENTICATION', 'AUTHORIZATION', 'COOKIE'
+from .signals import psihook_debug, DebugSender
 
 
-def debug(request):
-    headers = {k: request.META[k] for k in request.META if k.startswith('HTTP') and k not in SCRUBS}
-    LOGGER.debug('request', method=request.method, path=request.path, headers=headers)
+SCRUBS = 'HTTP_AUTHENTICATION', 'HTTP_AUTHORIZATION', 'HTTP_COOKIE'
+
+
+def default(request):
+    headers = {k: request.META[k] if k not in SCRUBS else '***' for k in request.META if k.startswith('HTTP')}
+
+    kwargs = {
+        'path': request.path,
+        'method': request.method,
+        'headers': headers,
+    }
+
+    if request.META['CONTENT_TYPE'] == 'text/json':
+        kwargs['payload'] = json.loads(request.body)
+    else:
+        kwargs['payload'] = request.POST or request.GET
+
+    psihook_debug.send_robust(DebugSender, **kwargs)
 
     return HttpResponse()
