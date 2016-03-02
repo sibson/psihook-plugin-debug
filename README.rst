@@ -1,4 +1,4 @@
-.. image:: https://img.shields.io/travis/sibson/psihook-plugin-debug.svg   :target: https://travis-ci.org/sibson/psihook-plugin-debug/
+.. image:: https://img.shields.io/travis/sibson/psihook-plugin-debug.svg :target: https://travis-ci.org/sibson/psihook-plugin-debug/
 
 PsiHook Debug
 ===============
