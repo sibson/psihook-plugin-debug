@@ -1,9 +1,9 @@
-.. image:: https://img.shields.io/travis/rust-lang/rust.svg   :target: https://travis-ci.org/sibson/psihook-plugin-debug/
+.. image:: https://img.shields.io/travis/sibson/psihook-plugin-debug.svg   :target: https://travis-ci.org/sibson/psihook-plugin-debug/
 
 PsiHook Debug
 ===============
 
-PsiHook Debug is a simple [PsiHook](https://github.com/sibson/psihook) plugin that can either be used as a template for new plugins or to debug other webhooks. 
+PsiHook Debug is a simple `PsiHook<(https://github.com/sibson/psihook>`_ plugin that can either be used as a template for new plugins or to debug other webhooks. 
 
 Quick start
 -----------
