@@ -1,3 +1,5 @@
+.. image:: https://img.shields.io/travis/rust-lang/rust.svg   :target: https://travis-ci.org/sibson/psihook-plugin-debug/
+
 PsiHook Debug
 ===============
 
