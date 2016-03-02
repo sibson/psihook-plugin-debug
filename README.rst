@@ -3,7 +3,7 @@
 PsiHook Debug
 ===============
 
-PsiHook Debug is a simple `PsiHook<(https://github.com/sibson/psihook>`_ plugin that can either be used as a template for new plugins or to debug other webhooks. 
+PsiHook Debug is a simple `PsiHook<https://github.com/sibson/psihook>`_ plugin that can either be used as a template for new plugins or to debug other webhooks. 
 
 Quick start
 -----------
