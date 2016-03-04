@@ -19,9 +19,13 @@ def default(request):
         'method': request.method,
         'headers': headers,
     }
-
-    if request.META['CONTENT_TYPE'] == 'text/json':
-        kwargs['payload'] = json.loads(request.body)
+    if not request.body:
+        kwargs['payload'] = None
+    elif request.META.get('CONTENT_TYPE') == 'text/json':
+        try:
+            kwargs['payload'] = json.loads(request.body)
+        except ValueError:
+            return HttpResponse(status=400)
     else:
         kwargs['payload'] = request.POST or request.GET
 
